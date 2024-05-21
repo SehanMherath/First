@@ -40,26 +40,6 @@ require_once ("process1.php");
                             <td><?php echo $row['book_id']; ?></td>
                             <td><?php echo $row['book_name']; ?></td>
                             <td><?php echo $row['category_Name']; ?></td>
-                            <td>
-                                <form action="process.php" method="post" style="display:inline;">
-                                    <input type="hidden" name="action" value="update">
-                                    <input type="hidden" name="book_id" value="<?php echo $row['book_id']; ?>">
-                                    <input type="text" name="book_name" value="<?php echo $row['book_name']; ?>">
-                                    <select name="book_category">
-                                        <option value="Fiction" <?php echo ($row['category_Name'] == 'Fiction') ? 'selected' : ''; ?>>Fiction</option>
-                                        <option value="Non-Fiction" <?php echo ($row['category_Name'] == 'Non-Fiction') ? 'selected' : ''; ?>>Non-Fiction</option>
-                                        <option value="Science" <?php echo ($row['category_Name'] == 'Science') ? 'selected' : ''; ?>>Science</option>
-                                        <option value="History" <?php echo ($row['category_Name'] == 'History') ? 'selected' : ''; ?>>History</option>
-                                    </select>
-                                    <button type="submit">Update</button>
-                                </form>
-                                <form action="process.php" method="post" style="display:inline;">
-                                    <input type="hidden" name="action" value="delete">
-                                    <input type="hidden" name="book_id" value="<?php echo $row['book_id']; ?>">
-                                    <button type="submit">Delete</button>
-                                </form>
-                            </td>
-
                         </tr>
                         
                         <?php
