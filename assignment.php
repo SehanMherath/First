@@ -14,6 +14,44 @@ require_once ("process1.php");
 </head>
 
 <body>
+    
+    <!-- Book Table -->
+    <div class="container"> 
+    <div class="Booktable">
+        <table>
+            <thead>
+            <tr>
+                <th>Book ID</th>
+                <th>Book Name</th>
+                <th>Book Category</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+
+            <tbody>
+                <?php
+                $sql = "SELECT b.book_id, b.book_name, bc.category_Name FROM book b JOIN bookcategory bc ON b.category_id = bc.category_id";
+                $result = $pdo->query($sql);
+
+                if ($result->rowCount() > 0) {
+                    while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                        ?>
+                        <tr>
+                            <td><?php echo $row['book_id']; ?></td>
+                            <td><?php echo $row['book_name']; ?></td>
+                            <td><?php echo $row['category_Name']; ?></td>
+                        </tr>
+                        
+                        <?php
+                    }
+                } else {
+                    echo '0 results';
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
+    </div>
 
     <!-- Book registration form -->
     <h1>Register Books</h1>
